@@ -29,7 +29,7 @@ export function Preloader() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="text-6xl md:text-8xl font-black tracking-tighter"
                         >
-                            AGENCY.
+                            LOOPLEE.
                         </motion.div>
                         <motion.div
                             className="h-1 bg-white"

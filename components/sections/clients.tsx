@@ -1,35 +1,31 @@
-"use client"
+"use client";
 
-import { Section } from "@/components/ui/section"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
 
-const clients = [
-    "Acme Corp", "Global Tech", "NextGen", "Starlight",
-    "Umbrella", "Cyberdyne", "Massive", "Hooli",
-    "Initech", "Soylent", "Stark Ind", "Wayne Ent"
-]
+const CLIENTS = [
+    "Acme Corp", "Global Tech", "Nebula Systems", "Vertex Inc", "Horizon Group", "Elevate", "Apex Dynamic"
+];
 
 export function Clients() {
     return (
-        <Section className="py-24 border-t border-border">
-            <div className="text-center mb-16">
-                <h2 className="text-2xl font-bold tracking-widest text-muted-foreground uppercase mb-4">Trusted By Industry Leaders</h2>
+        <section className="py-12 bg-white border-b border-slate-100">
+            <div className="container mx-auto px-4 mb-6">
+                <p className="text-sm font-semibold text-slate-400 uppercase tracking-widest text-center">Trusted By Industry Leaders</p>
             </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 border-t border-l border-border">
-                {clients.map((client, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: i * 0.05 }}
-                        className="aspect-[3/2] flex items-center justify-center border-r border-b border-border hover:bg-primary hover:text-primary-foreground transition-colors duration-500 cursor-default group"
-                    >
-                        <span className="font-bold text-lg opacity-50 group-hover:opacity-100">{client}</span>
-                    </motion.div>
-                ))}
+            <div className="overflow-hidden opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                {/* Simulating a logo marquee with text for now */}
+                <div className="flex gap-16 animate-infinite-scroll whitespace-nowrap py-4 justify-center items-center">
+                    {CLIENTS.map((client, i) => (
+                        <span key={i} className="text-2xl font-bold text-slate-300">{client}</span>
+                    ))}
+                    {CLIENTS.map((client, i) => (
+                        <span key={`dup-${i}`} className="text-2xl font-bold text-slate-300">{client}</span>
+                    ))}
+                    {CLIENTS.map((client, i) => (
+                        <span key={`dup2-${i}`} className="text-2xl font-bold text-slate-300">{client}</span>
+                    ))}
+                </div>
             </div>
-        </Section>
-    )
+        </section>
+    );
 }

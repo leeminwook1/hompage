@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { SmoothScrolling } from "@/components/providers/smooth-scrolling";
+import { NoiseOverlay } from "@/components/ui/noise-overlay";
+import { CursorInteraction } from "@/components/ui/cursor-interaction";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import { ClientOnlyPreloader } from "@/components/providers/client-only-preloader";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,15 +33,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth no-scrollbar">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground antialiased flex flex-col`}
+        className={`${inter.variable} ${poppins.variable} min-h-screen bg-background text-foreground antialiased flex flex-col`}
       >
-        <Header />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScrolling>
+          <ClientOnlyPreloader />
+          <NoiseOverlay />
+          <CursorInteraction />
+          <ScrollToTop />
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );
