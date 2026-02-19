@@ -2,164 +2,339 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { usePathname } from "next/navigation"
 
 export function Header() {
-    const [isOpen, setIsOpen] = React.useState(false)
+    const [activeMenu, setActiveMenu] = React.useState<string | null>(null)
+    const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
     const [mobileSubmenu, setMobileSubmenu] = React.useState<string | null>(null)
-
-    const toggleSubmenu = (name: string) => {
-        setMobileSubmenu(mobileSubmenu === name ? null : name)
-    }
+    const pathname = usePathname()
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="flex h-16 items-center px-4">
-                <div className="container max-w-screen-2xl flex items-center justify-between w-full mx-auto">
-                    <div className="flex items-center gap-2">
-                        <Link href="/" className="flex items-center space-x-2">
-                            <span className="text-xl font-bold tracking-tighter text-foreground font-[family-name:var(--font-poppins)]">LOOPLEE.</span>
-                        </Link>
-                    </div>
+        <header className="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
+            <div className="container mx-auto px-6">
+                <div className="flex items-center justify-between h-16">
+                    <Link href="/" className="text-xl font-bold text-black">
+                        LOOFLY
+                    </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-8">
-                        {/* Work Dropdown */}
-                        <div className="relative group h-16 flex items-center">
-                            <Link
-                                href="/works"
-                                className="text-sm font-medium transition-colors text-muted-foreground hover:text-primary cursor-pointer"
-                            >
-                                Work
-                            </Link>
-                            {/* <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                                <div className="bg-popover border border-border p-4 rounded-xl min-w-[200px] flex flex-col gap-2 shadow-2xl">
-                                    <Link href="/works" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 hover:bg-accent rounded-lg">Selected Works</Link>
-                                    <Link href="/works" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 hover:bg-accent rounded-lg">Archive</Link>
-                                </div>
-                            </div> */}
-                        </div>
-
-                        {/* Studio Dropdown */}
-                        <div className="relative group h-16 flex items-center">
-                            <Link
-                                href="/about"
-                                className="text-sm font-medium transition-colors text-muted-foreground hover:text-primary cursor-pointer"
-                            >
-                                About
-                            </Link>
-                            {/* <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                                <div className="bg-popover border border-border p-4 rounded-xl min-w-[200px] flex flex-col gap-2 shadow-2xl">
-                                    <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 hover:bg-accent rounded-lg">About Us</Link>
-                                    <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 hover:bg-accent rounded-lg">Core Values</Link>
-                                    <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 hover:bg-accent rounded-lg">Our Team</Link>
-                                </div>
-                            </div> */}
-                        </div>
-
-                        {/* Expertise Dropdown */}
-                        <div className="relative group h-16 flex items-center">
-                            <Link
-                                href="/services"
-                                className="text-sm font-medium transition-colors text-muted-foreground hover:text-primary cursor-pointer"
-                            >
-                                services
-                            </Link>
-                            {/* <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                                <div className="bg-popover border border-border p-4 rounded-xl min-w-[200px] flex flex-col gap-2 shadow-2xl">
-                                    <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 hover:bg-accent rounded-lg">Capabilities</Link>
-                                    <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 hover:bg-accent rounded-lg">Process</Link>
-                                    <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 hover:bg-accent rounded-lg">FAQ</Link>
-                                </div>
-                            </div> */}
-                        </div>
-
-                        <Link
-                            href="/contact"
-                            className="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
+                    <nav 
+                        className="hidden md:flex items-center h-full"
+                        onMouseLeave={() => setActiveMenu(null)}
+                    >
+                        {/* 루플리 소개 */}
+                        <div 
+                            className="relative h-full flex items-center w-[120px] justify-center"
+                            onMouseEnter={() => setActiveMenu('about')}
                         >
-                            Contact
-                        </Link>
-                    </nav>
-                </div>
+                            <div 
+                                className={`h-full flex items-center text-base font-bold transition-colors cursor-pointer ${
+                                    activeMenu === 'about' ? 'text-black' : 'text-black hover:text-gray-600'
+                                }`}
+                            >
+                                루플리 소개
+                            </div>
+                        </div>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                    className="flex items-center p-2 md:hidden text-foreground ml-auto"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </button>
+                        {/* 도파민유형 테스트 */}
+                        <div 
+                            className="relative h-full flex items-center w-[180px] justify-center"
+                            onMouseEnter={() => setActiveMenu('services')}
+                        >
+                            <div 
+                                className={`h-full flex items-center text-base font-bold transition-colors cursor-pointer ${
+                                    activeMenu === 'services' ? 'text-black' : 'text-black hover:text-gray-600'
+                                }`}
+                            >
+                                도파민유형 테스트
+                            </div>
+                        </div>
+
+                        {/* 커뮤니티 */}
+                        <div 
+                            className="relative h-full flex items-center w-[100px] justify-center"
+                            onMouseEnter={() => setActiveMenu('community')}
+                        >
+                            <div 
+                                className={`h-full flex items-center text-base font-bold transition-colors cursor-pointer ${
+                                    activeMenu === 'community' ? 'text-black' : 'text-black hover:text-gray-600'
+                                }`}
+                            >
+                                커뮤니티
+                            </div>
+                        </div>
+
+                        {/* 루플리 앱 */}
+                        <div 
+                            className="relative h-full flex items-center w-[100px] justify-center"
+                            onMouseEnter={() => setActiveMenu('app')}
+                        >
+                            <div 
+                                className={`h-full flex items-center text-base font-bold transition-colors cursor-pointer ${
+                                    activeMenu === 'app' ? 'text-black' : 'text-black hover:text-gray-600'
+                                }`}
+                            >
+                                APP
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        className="md:hidden p-2 text-black"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="메뉴"
+                    >
+                        {mobileMenuOpen ? (
+                            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        ) : (
+                            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        )}
+                    </button>
+                </div>
             </div>
 
-            {/* Mobile Nav */}
-            {isOpen && (
-                <div className="md:hidden border-t border-border bg-background h-[calc(100vh-4rem)] overflow-y-auto">
-                    <nav className="flex flex-col p-6 gap-6">
-                        {/* Work Mobile */}
-                        <div>
+            {/* Desktop Dropdown Menu */}
+            {activeMenu && (
+                <div 
+                    className="hidden md:block absolute left-0 w-full bg-white border-t border-gray-200 shadow-lg"
+                    onMouseEnter={() => setActiveMenu(activeMenu)}
+                    onMouseLeave={() => setActiveMenu(null)}
+                >
+                    <div className="container mx-auto px-6 py-6">
+                        <div className="flex justify-end">
+                            <div className="flex">
+                                {/* 루플리 소개 */}
+                                <div className={`flex flex-col gap-3 items-center w-[120px] ${activeMenu === 'about' ? 'opacity-100' : 'opacity-30'}`}>
+                                    <Link 
+                                        href="/about/story" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/about/story' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        루플리 스토리
+                                    </Link>
+                                    <Link 
+                                        href="/about/ceo" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/about/ceo' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        CEO 메세지
+                                    </Link>
+                                    <Link 
+                                        href="/about/history" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/about/history' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        수익구조
+                                    </Link>
+                                    <Link 
+                                        href="/about/sns" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/about/sns' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        SNS
+                                    </Link>
+                                </div>
+
+                                {/* 도파민유형 테스트 */}
+                                <div className={`flex flex-col gap-3 items-center w-[180px] ${activeMenu === 'services' ? 'opacity-100' : 'opacity-30'}`}>
+                                    <Link 
+                                        href="/services/test" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/services/test' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        테스트 하기
+                                    </Link>
+                                    <Link 
+                                        href="/services/intro" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/services/intro' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        유형 소개
+                                    </Link>
+                                </div>
+
+                                {/* 커뮤니티 */}
+                                <div className={`flex flex-col gap-3 items-center w-[100px] ${activeMenu === 'community' ? 'opacity-100' : 'opacity-30'}`}>
+                                    <Link 
+                                        href="/community/intro" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/community/intro' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        소개
+                                    </Link>
+                                    <Link 
+                                        href="/community/crew" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/community/crew' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        크루
+                                    </Link>
+                                    <Link 
+                                        href="/community/class" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/community/class' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        클래스
+                                    </Link>
+                                </div>
+
+                                {/* APP */}
+                                <div className={`flex flex-col gap-3 items-center w-[100px] ${activeMenu === 'app' ? 'opacity-100' : 'opacity-30'}`}>
+                                    <Link 
+                                        href="/app/intro" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/app/intro' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        앱 소개
+                                    </Link>
+                                    <Link 
+                                        href="/app/download" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/app/download' 
+                                                ? 'bg-purple-500 text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        다운로드
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Mobile Menu */}
+            {mobileMenuOpen && (
+                <div className="md:hidden border-t border-gray-200 bg-white">
+                    <nav className="container mx-auto px-6 py-4">
+                        {/* 루플리 소개 */}
+                        <div className="mb-4">
                             <button
-                                onClick={() => toggleSubmenu('work')}
-                                className="flex items-center justify-between w-full text-lg font-medium transition-colors hover:text-primary text-foreground"
+                                onClick={() => setMobileSubmenu(mobileSubmenu === 'about' ? null : 'about')}
+                                className="w-full text-left font-bold text-base py-2 flex justify-between items-center text-black"
                             >
-                                Work
-                                <span className={`text-xs transition-transform ${mobileSubmenu === 'work' ? 'rotate-180' : ''}`}>▼</span>
+                                루플리 소개
+                                <span className={`transition-transform text-black ${mobileSubmenu === 'about' ? 'rotate-180' : ''}`}>▼</span>
                             </button>
-                            {mobileSubmenu === 'work' && (
-                                <div className="flex flex-col gap-3 mt-4 ml-4 pl-4 border-l border-border">
-                                    <Link href="/works" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground">Works</Link>
-                                    {/* <Link href="/works" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground">Archive</Link> */}
+                            {mobileSubmenu === 'about' && (
+                                <div className="pl-4 mt-2 space-y-2">
+                                    <Link href="/about/story" className="block py-2 text-sm text-gray-600">
+                                        루플리 스토리
+                                    </Link>
+                                    <Link href="/about/ceo" className="block py-2 text-sm text-gray-600">
+                                        CEO 메세지
+                                    </Link>
+                                    <Link href="/about/history" className="block py-2 text-sm text-gray-600">
+                                        수익구조
+                                    </Link>
+                                    <Link href="/about/sns" className="block py-2 text-sm text-gray-600">
+                                        SNS
+                                    </Link>
                                 </div>
                             )}
                         </div>
 
-                        {/* Studio Mobile */}
-                        <div>
+                        {/* 도파민유형 테스트 */}
+                        <div className="mb-4">
                             <button
-                                onClick={() => toggleSubmenu('studio')}
-                                className="flex items-center justify-between w-full text-lg font-medium transition-colors hover:text-primary text-foreground"
+                                onClick={() => setMobileSubmenu(mobileSubmenu === 'services' ? null : 'services')}
+                                className="w-full text-left font-bold text-base py-2 flex justify-between items-center text-black"
                             >
-                                About
-                                <span className={`text-xs transition-transform ${mobileSubmenu === 'studio' ? 'rotate-180' : ''}`}>▼</span>
+                                도파민유형 테스트
+                                <span className={`transition-transform text-black ${mobileSubmenu === 'services' ? 'rotate-180' : ''}`}>▼</span>
                             </button>
-                            {mobileSubmenu === 'studio' && (
-                                <div className="flex flex-col gap-3 mt-4 ml-4 pl-4 border-l border-border">
-                                    <Link href="/about" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground">About Us</Link>
-                                    {/* <Link href="/about" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground">Core Values</Link>
-                                    <Link href="/about" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground">Our Team</Link> */}
+                            {mobileSubmenu === 'services' && (
+                                <div className="pl-4 mt-2 space-y-2">
+                                    <Link href="/services/test" className="block py-2 text-sm text-gray-600">
+                                        테스트 하기
+                                    </Link>
+                                    <Link href="/services/intro" className="block py-2 text-sm text-gray-600">
+                                        유형 소개
+                                    </Link>
                                 </div>
                             )}
                         </div>
 
-                        {/* Expertise Mobile */}
-                        <div>
+                        {/* 커뮤니티 */}
+                        <div className="mb-4">
                             <button
-                                onClick={() => toggleSubmenu('expertise')}
-                                className="flex items-center justify-between w-full text-lg font-medium transition-colors hover:text-primary text-foreground"
+                                onClick={() => setMobileSubmenu(mobileSubmenu === 'community' ? null : 'community')}
+                                className="w-full text-left font-bold text-base py-2 flex justify-between items-center text-black"
                             >
-                                services
-                                <span className={`text-xs transition-transform ${mobileSubmenu === 'expertise' ? 'rotate-180' : ''}`}>▼</span>
+                                커뮤니티
+                                <span className={`transition-transform text-black ${mobileSubmenu === 'community' ? 'rotate-180' : ''}`}>▼</span>
                             </button>
-                            {mobileSubmenu === 'expertise' && (
-                                <div className="flex flex-col gap-3 mt-4 ml-4 pl-4 border-l border-border">
-                                    <Link href="/services" onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground">services</Link>
+                            {mobileSubmenu === 'community' && (
+                                <div className="pl-4 mt-2 space-y-2">
+                                    <Link href="/community/intro" className="block py-2 text-sm text-gray-600">
+                                        소개
+                                    </Link>
+                                    <Link href="/community/crew" className="block py-2 text-sm text-gray-600">
+                                        크루
+                                    </Link>
+                                    <Link href="/community/class" className="block py-2 text-sm text-gray-600">
+                                        클래스
+                                    </Link>
                                 </div>
                             )}
                         </div>
 
-                        <Link
-                            href="/contact"
-                            className="text-lg font-medium transition-colors hover:text-primary text-foreground"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Contact
-                        </Link>
-
-                        <div className="pt-8 mt-4 border-t border-border">
-                            <Button className="w-full h-12 text-lg rounded-full" onClick={() => setIsOpen(false)}>
-                                Start a Project
-                            </Button>
+                        {/* APP */}
+                        <div className="mb-4">
+                            <button
+                                onClick={() => setMobileSubmenu(mobileSubmenu === 'app' ? null : 'app')}
+                                className="w-full text-left font-bold text-base py-2 flex justify-between items-center text-black"
+                            >
+                                APP
+                                <span className={`transition-transform text-black ${mobileSubmenu === 'app' ? 'rotate-180' : ''}`}>▼</span>
+                            </button>
+                            {mobileSubmenu === 'app' && (
+                                <div className="pl-4 mt-2 space-y-2">
+                                    <Link href="/app/intro" className="block py-2 text-sm text-gray-600">
+                                        앱 소개
+                                    </Link>
+                                    <Link href="/app/download" className="block py-2 text-sm text-gray-600">
+                                        다운로드
+                                    </Link>
+                                </div>
+                            )}
                         </div>
                     </nav>
                 </div>

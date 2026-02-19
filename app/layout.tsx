@@ -40,7 +40,6 @@ export default function RootLayout({
         <SmoothScrolling>
           <ClientOnlyPreloader />
           <NoiseOverlay />
-          <CursorInteraction />
           <ScrollToTop />
           <Header />
           <main className="flex-1">
