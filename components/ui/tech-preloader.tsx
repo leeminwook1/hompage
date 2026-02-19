@@ -76,7 +76,7 @@ export function TechPreloader() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            자국의 시대, 루플리
+                            자극의 시대, 루플리
                         </motion.h2>
 
                         {/* LOOFLY Logo with letter animation */}
