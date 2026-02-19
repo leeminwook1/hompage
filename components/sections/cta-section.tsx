@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export function CTASection() {
     return (
-        <section className="py-16 sm:py-24 md:py-32 bg-gradient-to-br from-purple-500 via-purple-600 to-purple-500 relative overflow-hidden">
+        <section className="py-16 sm:py-24 md:py-32 bg-purple-400 relative overflow-hidden">
             {/* Animated Background Pattern */}
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 left-0 w-full h-full" 
@@ -48,10 +48,10 @@ export function CTASection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-4">
                             3분 도메인 유형 테스트
                         </h2>
-                        <p className="text-lg sm:text-xl text-white/80">
+                        <p className="text-lg sm:text-xl text-black">
                             나에게 맞는 도메인을 찾아보세요
                         </p>
                     </motion.div>
@@ -63,12 +63,12 @@ export function CTASection() {
                         transition={{ duration: 0.6, delay: 0.4 }}
                     >
                         <Link 
-                            href="/test"
+                            href="/services/test"
                             className="group relative inline-block"
                         >
                             <div className="absolute inset-0 bg-white blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
                             <motion.div
-                                className="relative px-8 sm:px-12 md:px-16 py-4 sm:py-5 bg-white text-purple-500 rounded-full font-bold text-lg sm:text-xl shadow-2xl"
+                                className="relative px-8 sm:px-12 md:px-16 py-4 sm:py-5 bg-white text-black rounded-full font-bold text-lg sm:text-xl shadow-2xl"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >

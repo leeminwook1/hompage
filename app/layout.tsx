@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -9,17 +9,11 @@ import { CursorInteraction } from "@/components/ui/cursor-interaction";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { ClientOnlyPreloader } from "@/components/providers/client-only-preloader";
 
-const inter = Inter({
-  variable: "--font-inter",
+const notoSansKR = Noto_Sans_KR({
+  variable: "--font-noto-sans-kr",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "900"],
   display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth no-scrollbar">
       <body
-        className={`${inter.variable} ${poppins.variable} min-h-screen bg-background text-foreground antialiased flex flex-col`}
+        className={`${notoSansKR.variable} font-sans min-h-screen bg-background text-foreground antialiased flex flex-col`}
       >
         <SmoothScrolling>
           <ClientOnlyPreloader />

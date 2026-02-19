@@ -25,7 +25,7 @@ const communities = [
 
 export function CommunitySection() {
     return (
-        <section className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <section className="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-full h-full opacity-30">
                 <div className="absolute top-20 right-20 w-72 h-72 bg-purple-300 rounded-full blur-3xl" />
@@ -72,22 +72,14 @@ export function CommunitySection() {
                                 whileHover={{ y: -10 }}
                                 className="group relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
                             >
-                                {/* Gradient Border Effect */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${community.color} rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity`} />
+                                {/* Border Effect */}
+                                <div className="absolute inset-0 bg-purple-400 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity" />
                                 
-                                {/* Image Placeholder with Gradient */}
-                                <div className={`aspect-video bg-gradient-to-br ${community.color} rounded-xl mb-6 relative overflow-hidden`}>
-                                    <motion.div
-                                        className="absolute inset-0 bg-white/20"
-                                        animate={{
-                                            scale: [1, 1.2, 1],
-                                            opacity: [0.3, 0.5, 0.3],
-                                        }}
-                                        transition={{ duration: 3, repeat: Infinity }}
-                                    />
+                                {/* Image Placeholder */}
+                                <div className="aspect-video bg-purple-300 rounded-xl mb-6 relative overflow-hidden">
                                 </div>
 
-                                <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4 group-hover:text-purple-500 transition-colors">
+                                <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4 transition-colors">
                                     {community.title}
                                 </h3>
                                 
@@ -97,7 +89,7 @@ export function CommunitySection() {
                                 
                                 <div className="flex justify-end">
                                     <motion.button 
-                                        className={`px-6 py-2 bg-gradient-to-r ${community.color} text-white rounded-full font-medium text-sm shadow-lg hover:shadow-xl transition-all`}
+                                        className="px-6 py-2 bg-purple-400 text-black rounded-full font-medium text-sm shadow-lg hover:shadow-xl transition-all"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
