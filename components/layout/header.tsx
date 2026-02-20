@@ -20,7 +20,7 @@ export function Header() {
 
                     {/* Desktop Navigation */}
                     <nav 
-                        className="hidden md:flex items-center h-full"
+                        className="hidden md:flex items-center h-full gap-12"
                         onMouseLeave={() => setActiveMenu(null)}
                     >
                         {/* 루플리 소개 */}
@@ -37,23 +37,23 @@ export function Header() {
                             </div>
                         </div>
 
-                        {/* 도파민유형 테스트 */}
+                        {/* 비즈니스 */}
                         <div 
-                            className="relative h-full flex items-center w-[180px] justify-center"
-                            onMouseEnter={() => setActiveMenu('services')}
+                            className="relative h-full flex items-center w-[140px] justify-center"
+                            onMouseEnter={() => setActiveMenu('business')}
                         >
                             <div 
                                 className={`h-full flex items-center text-base font-bold transition-colors cursor-pointer ${
-                                    activeMenu === 'services' ? 'text-black' : 'text-black hover:text-gray-600'
+                                    activeMenu === 'business' ? 'text-black' : 'text-black hover:text-gray-600'
                                 }`}
                             >
-                                도파민유형 테스트
+                                비즈니스
                             </div>
                         </div>
 
                         {/* 커뮤니티 */}
                         <div 
-                            className="relative h-full flex items-center w-[100px] justify-center"
+                            className="relative h-full flex items-center w-[120px] justify-center"
                             onMouseEnter={() => setActiveMenu('community')}
                         >
                             <div 
@@ -65,17 +65,17 @@ export function Header() {
                             </div>
                         </div>
 
-                        {/* 루플리 앱 */}
+                        {/* 도파민유형 테스트 */}
                         <div 
-                            className="relative h-full flex items-center w-[100px] justify-center"
-                            onMouseEnter={() => setActiveMenu('app')}
+                            className="relative h-full flex items-center w-[180px] justify-center"
+                            onMouseEnter={() => setActiveMenu('services')}
                         >
                             <div 
                                 className={`h-full flex items-center text-base font-bold transition-colors cursor-pointer ${
-                                    activeMenu === 'app' ? 'text-black' : 'text-black hover:text-gray-600'
+                                    activeMenu === 'services' ? 'text-black' : 'text-black hover:text-gray-600'
                                 }`}
                             >
-                                APP
+                                도파민유형 테스트
                             </div>
                         </div>
                     </nav>
@@ -108,14 +108,14 @@ export function Header() {
                 >
                     <div className="container mx-auto px-6 py-6">
                         <div className="flex justify-end">
-                            <div className="flex">
+                            <div className="flex gap-12">
                                 {/* 루플리 소개 */}
                                 <div className={`flex flex-col gap-3 items-center w-[120px] ${activeMenu === 'about' ? 'opacity-100' : 'opacity-30'}`}>
                                     <Link 
                                         href="/about/story" 
                                         className={`text-sm transition-colors px-4 py-1 rounded-full ${
                                             pathname === '/about/story' 
-                                                ? 'bg-purple-500 text-white' 
+                                                ? 'bg-[#2828D0] text-white' 
                                                 : 'text-gray-600 hover:text-black'
                                         }`}
                                     >
@@ -125,31 +125,109 @@ export function Header() {
                                         href="/about/ceo" 
                                         className={`text-sm transition-colors px-4 py-1 rounded-full ${
                                             pathname === '/about/ceo' 
-                                                ? 'bg-purple-500 text-white' 
+                                                ? 'bg-[#2828D0] text-white' 
                                                 : 'text-gray-600 hover:text-black'
                                         }`}
                                     >
                                         CEO 메세지
                                     </Link>
-                                    <Link 
+                                    {/* <Link 
                                         href="/about/history" 
                                         className={`text-sm transition-colors px-4 py-1 rounded-full ${
                                             pathname === '/about/history' 
-                                                ? 'bg-purple-500 text-white' 
+                                                ? 'bg-[#2828D0] text-white' 
                                                 : 'text-gray-600 hover:text-black'
                                         }`}
                                     >
                                         수익구조
-                                    </Link>
+                                    </Link> */}
+                                </div>
+
+                                {/* 비즈니스 */}
+                                <div className={`flex flex-col gap-3 items-center w-[140px] ${activeMenu === 'business' ? 'opacity-100' : 'opacity-30'}`}>
                                     <Link 
-                                        href="/about/sns" 
-                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
-                                            pathname === '/about/sns' 
-                                                ? 'bg-purple-500 text-white' 
+                                        href="/business/dopamine-literacy" 
+                                        className={`text-sm transition-colors px-3 py-1 rounded-full text-center leading-tight ${
+                                            pathname === '/business/dopamine-literacy' 
+                                                ? 'bg-[#2828D0] text-white' 
                                                 : 'text-gray-600 hover:text-black'
                                         }`}
                                     >
-                                        SNS
+                                        도파민 리터러시<br />프로그램
+                                    </Link>
+                                    <Link 
+                                        href="/business/competency" 
+                                        className={`text-sm transition-colors px-3 py-1 rounded-full text-center leading-tight ${
+                                            pathname === '/business/competency' 
+                                                ? 'bg-[#2828D0] text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        역량 강화<br />프로그램
+                                    </Link>
+                                    <Link 
+                                        href="/business/leadership" 
+                                        className={`text-sm transition-colors px-3 py-1 rounded-full text-center leading-tight ${
+                                            pathname === '/business/leadership' 
+                                                ? 'bg-[#2828D0] text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        리더십 강화<br />프로그램
+                                    </Link>
+                                    <Link 
+                                        href="/business/team-bonding" 
+                                        className={`text-sm transition-colors px-3 py-1 rounded-full text-center leading-tight ${
+                                            pathname === '/business/team-bonding' 
+                                                ? 'bg-[#2828D0] text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        팀 본딩<br />프로그램
+                                    </Link>
+                                </div>
+
+                                {/* 커뮤니티 */}
+                                <div className={`flex flex-col gap-3 items-center w-[120px] ${activeMenu === 'community' ? 'opacity-100' : 'opacity-30'}`}>
+                                    <Link 
+                                        href="/community/intro" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/community/intro' 
+                                                ? 'bg-[#2828D0] text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        커뮤니티 소개
+                                    </Link>
+                                    <Link 
+                                        href="/community/crew" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/community/crew' 
+                                                ? 'bg-[#2828D0] text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        루플리 크루
+                                    </Link>
+                                    <Link 
+                                        href="/community/class" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/community/class' 
+                                                ? 'bg-[#2828D0] text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        루플리 클래스
+                                    </Link>
+                                    <Link 
+                                        href="/community/lap" 
+                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
+                                            pathname === '/community/lap' 
+                                                ? 'bg-[#2828D0] text-white' 
+                                                : 'text-gray-600 hover:text-black'
+                                        }`}
+                                    >
+                                        루프 랩 <br />(게시판)
                                     </Link>
                                 </div>
 
@@ -159,7 +237,7 @@ export function Header() {
                                         href="/services/test" 
                                         className={`text-sm transition-colors px-4 py-1 rounded-full ${
                                             pathname === '/services/test' 
-                                                ? 'bg-purple-500 text-white' 
+                                                ? 'bg-[#2828D0] text-white' 
                                                 : 'text-gray-600 hover:text-black'
                                         }`}
                                     >
@@ -169,69 +247,11 @@ export function Header() {
                                         href="/services/intro" 
                                         className={`text-sm transition-colors px-4 py-1 rounded-full ${
                                             pathname === '/services/intro' 
-                                                ? 'bg-purple-500 text-white' 
+                                                ? 'bg-[#2828D0] text-white' 
                                                 : 'text-gray-600 hover:text-black'
                                         }`}
                                     >
                                         유형 소개
-                                    </Link>
-                                </div>
-
-                                {/* 커뮤니티 */}
-                                <div className={`flex flex-col gap-3 items-center w-[100px] ${activeMenu === 'community' ? 'opacity-100' : 'opacity-30'}`}>
-                                    <Link 
-                                        href="/community/intro" 
-                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
-                                            pathname === '/community/intro' 
-                                                ? 'bg-purple-500 text-white' 
-                                                : 'text-gray-600 hover:text-black'
-                                        }`}
-                                    >
-                                        소개
-                                    </Link>
-                                    <Link 
-                                        href="/community/crew" 
-                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
-                                            pathname === '/community/crew' 
-                                                ? 'bg-purple-500 text-white' 
-                                                : 'text-gray-600 hover:text-black'
-                                        }`}
-                                    >
-                                        크루
-                                    </Link>
-                                    <Link 
-                                        href="/community/class" 
-                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
-                                            pathname === '/community/class' 
-                                                ? 'bg-purple-500 text-white' 
-                                                : 'text-gray-600 hover:text-black'
-                                        }`}
-                                    >
-                                        클래스
-                                    </Link>
-                                </div>
-
-                                {/* APP */}
-                                <div className={`flex flex-col gap-3 items-center w-[100px] ${activeMenu === 'app' ? 'opacity-100' : 'opacity-30'}`}>
-                                    <Link 
-                                        href="/app/intro" 
-                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
-                                            pathname === '/app/intro' 
-                                                ? 'bg-purple-500 text-white' 
-                                                : 'text-gray-600 hover:text-black'
-                                        }`}
-                                    >
-                                        앱 소개
-                                    </Link>
-                                    <Link 
-                                        href="/app/download" 
-                                        className={`text-sm transition-colors px-4 py-1 rounded-full ${
-                                            pathname === '/app/download' 
-                                                ? 'bg-purple-500 text-white' 
-                                                : 'text-gray-600 hover:text-black'
-                                        }`}
-                                    >
-                                        다운로드
                                     </Link>
                                 </div>
                             </div>
@@ -261,32 +281,35 @@ export function Header() {
                                     <Link href="/about/ceo" className="block py-2 text-sm text-gray-600">
                                         CEO 메세지
                                     </Link>
-                                    <Link href="/about/history" className="block py-2 text-sm text-gray-600">
+                                    {/* <Link href="/about/history" className="block py-2 text-sm text-gray-600">
                                         수익구조
-                                    </Link>
-                                    <Link href="/about/sns" className="block py-2 text-sm text-gray-600">
-                                        SNS
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             )}
                         </div>
 
-                        {/* 도파민유형 테스트 */}
+                        {/* 비즈니스 */}
                         <div className="mb-4">
                             <button
-                                onClick={() => setMobileSubmenu(mobileSubmenu === 'services' ? null : 'services')}
+                                onClick={() => setMobileSubmenu(mobileSubmenu === 'business' ? null : 'business')}
                                 className="w-full text-left font-bold text-base py-2 flex justify-between items-center text-black"
                             >
-                                도파민유형 테스트
-                                <span className={`transition-transform text-black ${mobileSubmenu === 'services' ? 'rotate-180' : ''}`}>▼</span>
+                                비즈니스
+                                <span className={`transition-transform text-black ${mobileSubmenu === 'business' ? 'rotate-180' : ''}`}>▼</span>
                             </button>
-                            {mobileSubmenu === 'services' && (
+                            {mobileSubmenu === 'business' && (
                                 <div className="pl-4 mt-2 space-y-2">
-                                    <Link href="/services/test" className="block py-2 text-sm text-gray-600">
-                                        테스트 하기
+                                    <Link href="/business/dopamine-literacy" className="block py-2 text-sm text-gray-600">
+                                        도파민 리터러시 프로그램
                                     </Link>
-                                    <Link href="/services/intro" className="block py-2 text-sm text-gray-600">
-                                        유형 소개
+                                    <Link href="/business/competency" className="block py-2 text-sm text-gray-600">
+                                        역량 강화 프로그램
+                                    </Link>
+                                    <Link href="/business/leadership" className="block py-2 text-sm text-gray-600">
+                                        리더십 강화 프로그램
+                                    </Link>
+                                    <Link href="/business/team-bonding" className="block py-2 text-sm text-gray-600">
+                                        팀 본딩 프로그램
                                     </Link>
                                 </div>
                             )}
@@ -312,26 +335,29 @@ export function Header() {
                                     <Link href="/community/class" className="block py-2 text-sm text-gray-600">
                                         클래스
                                     </Link>
+                                    <Link href="/community/lap" className="block py-2 text-sm text-gray-600">
+                                        루프 랩(게시판)
+                                    </Link>
                                 </div>
                             )}
                         </div>
 
-                        {/* APP */}
+                        {/* 도파민유형 테스트 */}
                         <div className="mb-4">
                             <button
-                                onClick={() => setMobileSubmenu(mobileSubmenu === 'app' ? null : 'app')}
+                                onClick={() => setMobileSubmenu(mobileSubmenu === 'services' ? null : 'services')}
                                 className="w-full text-left font-bold text-base py-2 flex justify-between items-center text-black"
                             >
-                                APP
-                                <span className={`transition-transform text-black ${mobileSubmenu === 'app' ? 'rotate-180' : ''}`}>▼</span>
+                                도파민유형 테스트
+                                <span className={`transition-transform text-black ${mobileSubmenu === 'services' ? 'rotate-180' : ''}`}>▼</span>
                             </button>
-                            {mobileSubmenu === 'app' && (
+                            {mobileSubmenu === 'services' && (
                                 <div className="pl-4 mt-2 space-y-2">
-                                    <Link href="/app/intro" className="block py-2 text-sm text-gray-600">
-                                        앱 소개
+                                    <Link href="/services/test" className="block py-2 text-sm text-gray-600">
+                                        테스트 하기
                                     </Link>
-                                    <Link href="/app/download" className="block py-2 text-sm text-gray-600">
-                                        다운로드
+                                    <Link href="/services/intro" className="block py-2 text-sm text-gray-600">
+                                        유형 소개
                                     </Link>
                                 </div>
                             )}

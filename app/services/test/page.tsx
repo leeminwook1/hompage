@@ -310,14 +310,14 @@ export default function TestPage() {
         
         return (
             <div className="min-h-screen bg-white pt-24 pb-12 px-4 md:px-6">
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-6xl mx-auto border-2 rounded-2xl p-6 md:p-8" style={{ borderColor: 'rgba(40, 40, 208, 0.2)' }}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="space-y-6"
                     >
                         {/* 헤더 - 컴팩트 */}
-                        <div className="text-center space-y-2 pb-4 border-b-2 border-purple-200">
+                        <div className="text-center space-y-2 pb-4 border-b-2" style={{ borderColor: 'rgba(40, 40, 208, 0.2)' }}>
                             <div className="text-5xl">{result.emoji}</div>
                             <h1 className="text-2xl md:text-3xl font-bold text-black">
                                 {result.type}
@@ -330,7 +330,7 @@ export default function TestPage() {
                         {/* 2x2 그리드 레이아웃 - 간격 축소 */}
                         <div className="grid md:grid-cols-2 gap-4">
                             {/* 패턴 인식 */}
-                            <div className="bg-purple-50 p-4 rounded-xl space-y-2">
+                            <div className="p-4 rounded-xl space-y-2" style={{ backgroundColor: 'rgba(40, 40, 208, 0.05)' }}>
                                 <h3 className="text-base md:text-lg font-bold text-black">
                                     {result.page1.title}
                                 </h3>
@@ -339,49 +339,49 @@ export default function TestPage() {
                                         <p key={i}>{text}</p>
                                     ))}
                                 </div>
-                                <p className="text-xs md:text-sm font-medium text-purple-700 bg-white p-2 rounded-lg">
+                                <p className="text-xs md:text-sm font-medium bg-white p-2 rounded-lg" style={{ color: '#2828D0' }}>
                                     {result.page1.highlight}
                                 </p>
                             </div>
 
                             {/* 도파민 패턴 */}
-                            <div className="bg-white border-2 border-purple-200 p-4 rounded-xl space-y-2">
+                            <div className="bg-white border-2 p-4 rounded-xl space-y-2" style={{ borderColor: 'rgba(40, 40, 208, 0.2)' }}>
                                 <h3 className="text-base md:text-lg font-bold text-black">
                                     도파민 패턴
                                 </h3>
                                 <div className="space-y-1">
                                     {result.page2.patterns.map((pattern, i) => (
                                         <div key={i} className="flex items-start gap-2">
-                                            <span className="text-purple-600 text-xs">•</span>
+                                            <span className="text-xs" style={{ color: '#2828D0' }}>•</span>
                                             <p className="text-xs md:text-sm text-gray-700">{pattern}</p>
                                         </div>
                                     ))}
                                 </div>
-                                <p className="text-xs md:text-sm font-medium text-black bg-purple-50 p-2 rounded-lg">
+                                <p className="text-xs md:text-sm font-medium text-black p-2 rounded-lg" style={{ backgroundColor: 'rgba(40, 40, 208, 0.05)' }}>
                                     {result.page2.summary}
                                 </p>
                             </div>
 
                             {/* 강점 */}
-                            <div className="bg-white border-2 border-purple-200 p-4 rounded-xl space-y-2">
+                            <div className="bg-white border-2 p-4 rounded-xl space-y-2" style={{ borderColor: 'rgba(40, 40, 208, 0.2)' }}>
                                 <h3 className="text-base md:text-lg font-bold text-black">
                                     당신의 강점
                                 </h3>
                                 <div className="space-y-1">
                                     {result.page3.strengths.map((strength, i) => (
                                         <div key={i} className="flex items-start gap-2">
-                                            <span className="text-purple-600 text-xs">✓</span>
+                                            <span className="text-xs" style={{ color: '#2828D0' }}>✓</span>
                                             <p className="text-xs md:text-sm text-gray-700">{strength}</p>
                                         </div>
                                     ))}
                                 </div>
-                                <p className="text-xs md:text-sm font-medium text-purple-700 bg-purple-50 p-2 rounded-lg">
+                                <p className="text-xs md:text-sm font-medium p-2 rounded-lg" style={{ color: '#2828D0', backgroundColor: 'rgba(40, 40, 208, 0.05)' }}>
                                     {result.page3.potential}
                                 </p>
                             </div>
 
                             {/* 주의점 */}
-                            <div className="bg-purple-50 p-4 rounded-xl space-y-2">
+                            <div className="p-4 rounded-xl space-y-2" style={{ backgroundColor: 'rgba(40, 40, 208, 0.05)' }}>
                                 <h3 className="text-base md:text-lg font-bold text-black">
                                     주의할 점
                                 </h3>
@@ -400,40 +400,40 @@ export default function TestPage() {
                         </div>
 
                         {/* 요약 - 컴팩트 */}
-                        <div className="bg-purple-100 p-4 md:p-6 rounded-xl space-y-3">
+                        <div className="p-4 md:p-6 rounded-xl space-y-3" style={{ backgroundColor: 'rgba(40, 40, 208, 0.1)' }}>
                             <h3 className="text-base md:text-lg font-bold text-black text-center">
                                 이런 특징이 있다면 {result.type}!
                             </h3>
                             <div className="grid md:grid-cols-2 gap-2">
                                 {result.page5.checks.map((check, i) => (
                                     <p key={i} className="text-xs md:text-sm text-gray-700 flex items-center gap-2">
-                                        <span className="text-purple-600">→</span>
+                                        <span style={{ color: '#2828D0' }}>→</span>
                                         {check}
                                     </p>
                                 ))}
                             </div>
-                            <p className="text-xs md:text-sm text-gray-800 leading-relaxed pt-3 border-t border-purple-200">
+                            <p className="text-xs md:text-sm text-gray-800 leading-relaxed pt-3 border-t" style={{ borderColor: 'rgba(40, 40, 208, 0.2)' }}>
                                 {result.page5.summary}
                             </p>
                         </div>
 
                         {/* 하단 - 점수와 버튼을 한 줄로 */}
-                        <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white border-2 border-purple-200 p-4 rounded-xl">
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white border-2 p-4 rounded-xl" style={{ borderColor: 'rgba(40, 40, 208, 0.2)' }}>
                             <div className="flex gap-4 md:gap-6">
                                 <div className="text-center">
-                                    <div className="text-xl md:text-2xl font-bold text-purple-600">{result.scores.stimulus}</div>
+                                    <div className="text-xl md:text-2xl font-bold" style={{ color: '#2828D0' }}>{result.scores.stimulus}</div>
                                     <div className="text-xs text-gray-600">자극강도</div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-xl md:text-2xl font-bold text-purple-600">{result.scores.delayed}</div>
+                                    <div className="text-xl md:text-2xl font-bold" style={{ color: '#2828D0' }}>{result.scores.delayed}</div>
                                     <div className="text-xs text-gray-600">보상지연</div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-xl md:text-2xl font-bold text-purple-600">{result.scores.external}</div>
+                                    <div className="text-xl md:text-2xl font-bold" style={{ color: '#2828D0' }}>{result.scores.external}</div>
                                     <div className="text-xs text-gray-600">외부인정</div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-xl md:text-2xl font-bold text-purple-600">{result.scores.novelty}</div>
+                                    <div className="text-xl md:text-2xl font-bold" style={{ color: '#2828D0' }}>{result.scores.novelty}</div>
                                     <div className="text-xs text-gray-600">새로움</div>
                                 </div>
                             </div>
@@ -443,7 +443,10 @@ export default function TestPage() {
                                     setAnswers({})
                                     setShowResult(false)
                                 }}
-                                className="px-6 py-2.5 bg-purple-400 text-black rounded-full text-sm font-medium hover:bg-purple-500 transition-colors whitespace-nowrap"
+                                className="px-6 py-2.5 text-white rounded-full text-sm font-medium transition-colors whitespace-nowrap"
+                                style={{ background: 'linear-gradient(135deg, #2828D0 0%, #8060D0 100%)' }}
+                                onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
+                                onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
                             >
                                 다시 테스트하기
                             </button>
@@ -456,7 +459,7 @@ export default function TestPage() {
 
     return (
         <div className="min-h-screen bg-white pt-32 pb-16 px-6">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto border-2 rounded-2xl p-8" style={{ borderColor: 'rgba(40, 40, 208, 0.2)' }}>
                 {/* Progress Bar */}
                 <div className="mb-8">
                     <div className="flex justify-between text-sm text-gray-600 mb-2">
@@ -465,7 +468,8 @@ export default function TestPage() {
                     </div>
                     <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                         <motion.div
-                            className="h-full bg-purple-400"
+                            className="h-full"
+                            style={{ background: 'linear-gradient(90deg, #2828D0 0%, #8060D0 100%)' }}
                             initial={{ width: 0 }}
                             animate={{ width: `${progress}%` }}
                             transition={{ duration: 0.3 }}
@@ -481,7 +485,7 @@ export default function TestPage() {
                     exit={{ opacity: 0, x: -20 }}
                     className="space-y-8"
                 >
-                    <div className="bg-purple-50 p-8 rounded-2xl">
+                    <div className="bg-white border-2 p-8 rounded-2xl" style={{ borderColor: 'rgba(40, 40, 208, 0.2)' }}>
                         <p className="text-xl md:text-2xl text-black font-medium leading-relaxed">
                             {questions[currentQuestion].text}
                         </p>
@@ -493,7 +497,19 @@ export default function TestPage() {
                             <motion.button
                                 key={option.value}
                                 onClick={() => handleAnswer(option.value)}
-                                className="w-full p-4 bg-white border-2 border-gray-200 rounded-xl text-left hover:border-purple-400 hover:bg-purple-50 transition-all"
+                                className="w-full p-4 bg-white border-2 border-gray-200 rounded-xl text-left transition-all"
+                                style={{
+                                    '--hover-border': '#2828D0',
+                                    '--hover-bg': 'rgba(40, 40, 208, 0.05)'
+                                } as React.CSSProperties}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = '#2828D0';
+                                    e.currentTarget.style.backgroundColor = 'rgba(40, 40, 208, 0.05)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = '#e5e7eb';
+                                    e.currentTarget.style.backgroundColor = 'white';
+                                }}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >

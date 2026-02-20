@@ -1,57 +1,77 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const communities = [
     {
-        title: "코딩 스타터",
-        description: "코딩 시작하기 위한 기초 프로그래밍 입문 과정 | 코딩 기초부터 실전까지 | 1:1 멘토링 | 1:1 코칭 | 1:1 피드백",
-        tag: "코딩 입문",
-        color: "from-purple-400 to-purple-600"
+        title: "코딩 클래스",
+        subtitle: "함께 성장하는 개발자 커뮤니티",
+        tag: "[LOOFLY class]",
+        badge: "참여하기",
+        image: "/main4.jpg"
     },
     {
-        title: "기획/개발 코칭",
-        description: "기획 시작하기 위한 기초 프로그래밍 입문 과정 | 기획 기초부터 실전까지 | 1:1 멘토링 | 1:1 코칭 | 1:1 피드백",
-        tag: "기획/개발",
-        color: "from-purple-500 to-purple-700"
+        title: "스냅 클래스",
+        subtitle: "일상을 담는 사진 촬영 클래스",
+        tag: "[LOOFLY class]",
+        badge: "참여하기",
+        image: "/main4.jpg"
     },
     {
-        title: "스킬 클래스/커뮤니티 입문",
-        description: "스킬 시작하기 위한 기초 프로그래밍 입문 과정 | 스킬 기초부터 실전까지 | 1:1 멘토링 | 1:1 코칭 | 1:1 피드백",
-        tag: "스킬 클래스",
-        color: "from-pink-300 to-purple-500"
+        title: "가창 클래스",
+        subtitle: "목소리로 표현하는 음악 수업",
+        tag: "[LOOFLY class]",
+        badge: "참여하기",
+        image: "/main4.jpg"
+    },
+    {
+        title: "러닝 크루",
+        subtitle: "건강한 습관을 만드는 러닝 모임",
+        tag: "[LOOFLY CREW]",
+        badge: "참여하기",
+        image: "/main4.jpg"
+    },
+    {
+        title: "볼링 크루",
+        subtitle: "스트라이크로 연결되는 즐거운 모임",
+        tag: "[LOOFLY CREW]",
+        badge: "참여하기",
+        image: "/main4.jpg"
+    },
+    {
+        title: "출사 크루",
+        subtitle: "렌즈로 세상을 담는 사진 동호회",
+        tag: "[LOOFLY CREW]",
+        badge: "참여하기",
+        image: "/main4.jpg"
     }
 ]
 
 export function CommunitySection() {
     return (
         <section className="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden">
-            {/* Background Decoration */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-30">
-                <div className="absolute top-20 right-20 w-72 h-72 bg-purple-300 rounded-full blur-3xl" />
-                <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-400 rounded-full blur-3xl" />
-            </div>
-
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-6 max-w-7xl relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="space-y-16"
+                    className="space-y-12 md:space-y-16"
                 >
+                    {/* Header */}
                     <div className="text-center space-y-4">
                         <motion.p 
-                            className="text-sm text-purple-500 font-semibold tracking-wider uppercase"
+                            className="text-sm text-gray-600 font-medium"
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            관심과 도메인이 같아요 꼭
+                            건강한 도파민이 모이는 곳
                         </motion.p>
                         <motion.h2 
-                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black"
+                            className="text-3xl sm:text-4xl md:text-5xl font-bold text-black"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -61,40 +81,50 @@ export function CommunitySection() {
                         </motion.h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+                    {/* Grid Layout */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {communities.map((community, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 50 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.15 }}
-                                whileHover={{ y: -10 }}
-                                className="group relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                className="group"
                             >
-                                {/* Border Effect */}
-                                <div className="absolute inset-0 bg-purple-400 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity" />
-                                
-                                {/* Image Placeholder */}
-                                <div className="aspect-video bg-purple-300 rounded-xl mb-6 relative overflow-hidden">
-                                </div>
+                                <div className="bg-white rounded-2xl p-5 md:p-6 space-y-4 h-full hover:shadow-xl hover:scale-[1.02] transition-all duration-300 border-2 border-gray-100">
+                                    {/* Image */}
+                                    <div className="aspect-square bg-gray-100 rounded-xl relative overflow-hidden">
+                                        <Image
+                                            src={community.image}
+                                            alt={community.title}
+                                            fill
+                                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                    </div>
 
-                                <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4 transition-colors">
-                                    {community.title}
-                                </h3>
-                                
-                                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4 sm:mb-6 line-clamp-3">
-                                    {community.description}
-                                </p>
-                                
-                                <div className="flex justify-end">
-                                    <motion.button 
-                                        className="px-6 py-2 bg-purple-400 text-black rounded-full font-medium text-sm shadow-lg hover:shadow-xl transition-all"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        {community.tag}
-                                    </motion.button>
+                                    {/* Content */}
+                                    <div className="space-y-3">
+                                        {/* Tag */}
+                                        <p className="text-xs md:text-sm font-medium" style={{ color: '#2828D0' }}>
+                                            {community.tag}
+                                        </p>
+
+                                        {/* Title */}
+                                        <h3 className="text-xl md:text-2xl font-bold text-black">
+                                            {community.title}
+                                        </h3>
+
+                                        {/* Subtitle */}
+                                        <p className="text-sm text-gray-600">
+                                            {community.subtitle}
+                                        </p>
+
+                                        {/* Badge */}
+                                        <button className="w-full px-4 py-2.5 bg-white rounded-xl text-sm font-medium transition-all duration-300 border-2 hover:bg-[#2828D0]/10 hover:border-[#2828D0]" style={{ color: '#2828D0', borderColor: '#8060D0' }}>
+                                            {community.badge}
+                                        </button>
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}

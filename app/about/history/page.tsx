@@ -16,7 +16,7 @@ export default function HistoryPage() {
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
                             Business Model
                         </h1>
-                        <div className="h-1 w-24 bg-purple-400 mx-auto"></div>
+                        <div className="h-1 w-24 mx-auto" style={{ background: 'linear-gradient(90deg, #2828D0 0%, #8060D0 100%)' }}></div>
                     </motion.div>
                 </div>
             </section>
@@ -31,11 +31,11 @@ export default function HistoryPage() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="flex flex-col items-center"
                         >
-                            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border-2 md:border-4 border-purple-400 flex items-center justify-center mb-4 relative overflow-hidden bg-white cursor-pointer group">
-                                <div className="absolute inset-0 bg-purple-400 scale-0 group-hover:scale-100 transition-transform duration-300 origin-center rounded-full" />
+                            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border-2 md:border-4 flex items-center justify-center mb-4 relative overflow-hidden bg-white cursor-pointer group" style={{ borderColor: '#2828D0' }}>
+                                <div className="absolute inset-0 scale-0 group-hover:scale-100 transition-transform duration-300 origin-center rounded-full" style={{ background: 'linear-gradient(135deg, #2828D0 0%, #8060D0 100%)' }} />
                                 <div className="text-center relative z-10">
-                                    <div className="text-sm md:text-xl font-bold text-black">B2B</div>
-                                    <div className="text-xs md:text-sm text-black">파트너십</div>
+                                    <div className="text-sm md:text-xl font-bold text-black group-hover:text-white transition-colors">B2B</div>
+                                    <div className="text-xs md:text-sm text-black group-hover:text-white transition-colors">파트너십</div>
                                 </div>
                             </div>
                         </motion.div>
@@ -46,11 +46,11 @@ export default function HistoryPage() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="flex flex-col items-center"
                         >
-                            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border-2 md:border-4 border-purple-400 flex items-center justify-center bg-white mb-4 relative overflow-hidden cursor-pointer group">
-                                <div className="absolute inset-0 bg-purple-400 scale-0 group-hover:scale-100 transition-transform duration-300 origin-center rounded-full" />
+                            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border-2 md:border-4 flex items-center justify-center bg-white mb-4 relative overflow-hidden cursor-pointer group" style={{ borderColor: '#2828D0' }}>
+                                <div className="absolute inset-0 scale-0 group-hover:scale-100 transition-transform duration-300 origin-center rounded-full" style={{ background: 'linear-gradient(135deg, #2828D0 0%, #8060D0 100%)' }} />
                                 <div className="text-center relative z-10">
-                                    <div className="text-sm md:text-xl font-bold text-black">B2C</div>
-                                    <div className="text-xs md:text-sm text-black">서비스</div>
+                                    <div className="text-sm md:text-xl font-bold text-black group-hover:text-white transition-colors">B2C</div>
+                                    <div className="text-xs md:text-sm text-black group-hover:text-white transition-colors">서비스</div>
                                 </div>
                             </div>
                         </motion.div>
@@ -61,9 +61,9 @@ export default function HistoryPage() {
                             transition={{ duration: 0.5, delay: 0.3 }}
                             className="flex flex-col items-center"
                         >
-                            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border-2 md:border-4 border-purple-400 flex items-center justify-center bg-white mb-4 relative overflow-hidden cursor-pointer group">
-                                <div className="absolute inset-0 bg-purple-400 scale-0 group-hover:scale-100 transition-transform duration-300 origin-center rounded-full" />
-                                <div className="text-center text-black text-xs md:text-base font-medium relative z-10 whitespace-nowrap">
+                            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border-2 md:border-4 flex items-center justify-center bg-white mb-4 relative overflow-hidden cursor-pointer group" style={{ borderColor: '#2828D0' }}>
+                                <div className="absolute inset-0 scale-0 group-hover:scale-100 transition-transform duration-300 origin-center rounded-full" style={{ background: 'linear-gradient(135deg, #2828D0 0%, #8060D0 100%)' }} />
+                                <div className="text-center text-black text-xs md:text-base font-medium relative z-10 whitespace-nowrap group-hover:text-white transition-colors">
                                     매체수익
                                 </div>
                             </div>
@@ -73,7 +73,7 @@ export default function HistoryPage() {
             </section>
 
             {/* Content Sections */}
-            <section className="py-16 px-6 bg-purple-100">
+            <section className="py-16 px-6" style={{ backgroundColor: 'rgba(128, 96, 208, 0.05)' }}>
                 <div className="max-w-5xl mx-auto space-y-16">
                     {/* B2B 파트너십 - 도파민 전달 솔루션 */}
                     <motion.div

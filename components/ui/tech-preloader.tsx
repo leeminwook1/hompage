@@ -43,11 +43,12 @@ export function TechPreloader() {
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-gradient-to-b from-pink-200 via-purple-300 to-purple-400 overflow-hidden"
+                    className="fixed inset-0 z-[10000] flex flex-col items-center justify-center overflow-hidden"
+                    style={{ background: 'linear-gradient(135deg, #2828D0 0%, #8060D0 100%)' }}
                 >
                     {/* Animated Background Circles */}
                     <motion.div
-                        className="absolute w-96 h-96 bg-white/20 rounded-full blur-3xl"
+                        className="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl"
                         animate={{
                             scale: [1, 1.3, 1],
                             x: [0, 50, 0],
@@ -57,7 +58,7 @@ export function TechPreloader() {
                         style={{ top: "20%", left: "10%" }}
                     />
                     <motion.div
-                        className="absolute w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"
+                        className="absolute w-80 h-80 bg-white/10 rounded-full blur-3xl"
                         animate={{
                             scale: [1.2, 1, 1.2],
                             x: [0, -40, 0],
@@ -71,7 +72,7 @@ export function TechPreloader() {
                     <div className="relative z-10 flex flex-col items-center">
                         {/* Subtitle */}
                         <motion.h2 
-                            className="text-2xl md:text-3xl font-bold text-black mb-6"
+                            className="text-2xl md:text-3xl font-bold text-white mb-6"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
@@ -84,7 +85,7 @@ export function TechPreloader() {
                             {"LOOFLY".split("").map((letter, i) => (
                                 <motion.span
                                     key={i}
-                                    className="text-7xl md:text-9xl font-black text-black tracking-tight"
+                                    className="text-7xl md:text-9xl font-black text-white tracking-tight"
                                     initial={{ opacity: 0, y: 50, scale: 0.5 }}
                                     animate={{
                                         opacity: 1,
@@ -109,9 +110,9 @@ export function TechPreloader() {
                             transition={{ duration: 0.6, delay: 0.8 }}
                             className="w-64 md:w-80"
                         >
-                            <div className="w-full h-1 bg-black/20 rounded-full overflow-hidden">
+                            <div className="w-full h-1 bg-white/20 rounded-full overflow-hidden">
                                 <motion.div
-                                    className="h-full bg-black rounded-full"
+                                    className="h-full bg-white rounded-full"
                                     style={{
                                         width: `${progress}%`,
                                     }}
@@ -130,7 +131,7 @@ export function TechPreloader() {
                             {[...Array(3)].map((_, i) => (
                                 <motion.div
                                     key={i}
-                                    className="w-2 h-2 bg-black/60 rounded-full"
+                                    className="w-2 h-2 bg-white/60 rounded-full"
                                     animate={{
                                         scale: [1, 1.5, 1],
                                         opacity: [0.6, 1, 0.6],

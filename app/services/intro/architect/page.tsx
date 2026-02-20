@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export default function ArchitectPage() {
     return (
-        <div className="min-h-screen bg-white pt-32 pb-16 px-6">
+        <div className="min-h-screen bg-blue-50 pt-32 pb-16 px-6">
             <div className="max-w-5xl mx-auto">
                 {/* 뒤로가기 */}
                 <Link
@@ -26,7 +26,7 @@ export default function ArchitectPage() {
                     <h1 className="text-3xl md:text-5xl font-bold text-black">
                         설계자 루프
                     </h1>
-                    <p className="text-lg text-purple-600 font-medium">
+                    <p className="text-lg font-medium" style={{ color: '#2828D0' }}>
                         계획과 루틴으로 움직이는 유형
                     </p>
                 </motion.div>
@@ -51,7 +51,7 @@ export default function ArchitectPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="bg-purple-50 p-8 rounded-2xl space-y-4"
+                    className="p-8 rounded-2xl space-y-4" style={{ background: 'linear-gradient(135deg, rgba(40, 40, 208, 0.05) 0%, rgba(128, 96, 208, 0.05) 100%)' }}
                 >
                     <h2 className="text-2xl font-bold text-black">특징</h2>
                     <p className="text-gray-700 leading-relaxed">
@@ -63,19 +63,19 @@ export default function ArchitectPage() {
                         <h3 className="text-lg font-bold text-black mb-2">강점</h3>
                         <ul className="space-y-2 text-gray-700">
                             <li className="flex items-start gap-2">
-                                <span className="text-purple-600">✓</span>
+                                <span style={{ color: '#2828D0' }}>✓</span>
                                 <span>단기 보상보다 장기 목표가 편하고</span>
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="text-purple-600">✓</span>
+                                <span style={{ color: '#2828D0' }}>✓</span>
                                 <span>루틴이 있어야 안정되고</span>
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="text-purple-600">✓</span>
+                                <span style={{ color: '#2828D0' }}>✓</span>
                                 <span>천천히라도 끝까지 가고</span>
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="text-purple-600">✓</span>
+                                <span style={{ color: '#2828D0' }}>✓</span>
                                 <span>성취를 쌓는 타입</span>
                             </li>
                         </ul>
@@ -113,7 +113,8 @@ export default function ArchitectPage() {
                     <p className="text-gray-700">나는 어떤 유형일까요?</p>
                     <Link
                         href="/services/test"
-                        className="inline-block px-8 py-3 bg-purple-400 text-black rounded-full font-medium hover:bg-purple-500 transition-colors"
+                        className="inline-block px-8 py-3 text-white rounded-full font-medium hover:opacity-90 transition-opacity"
+                        style={{ background: 'linear-gradient(135deg, #2828D0 0%, #8060D0 100%)' }}
                     >
                         테스트 시작하기
                     </Link>

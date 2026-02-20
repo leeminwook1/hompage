@@ -41,59 +41,94 @@ const sections = [
 
 export function MissionSection() {
     return (
-        <section className="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden">
-            <div className="container mx-auto px-6 max-w-4xl relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="space-y-20"
-                >
+        <section className="py-16 sm:py-20 md:py-24 bg-white">
+            <div className="container mx-auto px-6 max-w-4xl">
+                <div className="space-y-16 md:space-y-20">
                     {sections.map((section, sectionIndex) => (
                         <motion.div
                             key={sectionIndex}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
-                            className="space-y-6 text-center"
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ 
+                                duration: 0.8,
+                                delay: 0.2,
+                                ease: [0.22, 1, 0.36, 1]
+                            }}
+                            className="text-center space-y-6"
                         >
                             {section.title && (
-                                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-relaxed">
+                                <motion.h2
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ 
+                                        duration: 0.8,
+                                        delay: 0.3,
+                                        ease: [0.22, 1, 0.36, 1]
+                                    }}
+                                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-relaxed"
+                                >
                                     {section.title}
-                                </h2>
+                                </motion.h2>
                             )}
                             
                             {sectionIndex === 0 && (
-                                <div className="w-24 h-1 bg-purple-400 mx-auto my-8"></div>
+                                <motion.div
+                                    initial={{ scaleX: 0 }}
+                                    whileInView={{ scaleX: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ 
+                                        duration: 0.8,
+                                        delay: 0.5,
+                                        ease: [0.22, 1, 0.36, 1]
+                                    }}
+                                    className="w-20 h-0.5 mx-auto"
+                                    style={{ background: 'linear-gradient(90deg, #2828D0 0%, #8060D0 100%)' }}
+                                />
                             )}
                             
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 {section.content.map((text, textIndex) => (
-                                    <p 
+                                    <motion.p
                                         key={textIndex}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ 
+                                            duration: 0.7,
+                                            delay: 0.4 + (textIndex * 0.1),
+                                            ease: [0.22, 1, 0.36, 1]
+                                        }}
                                         className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed"
                                     >
                                         {text}
-                                    </p>
+                                    </motion.p>
                                 ))}
                             </div>
                         </motion.div>
                     ))}
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className="pt-12 text-center"
+                        transition={{ 
+                            duration: 0.8,
+                            delay: 0.3,
+                            ease: [0.22, 1, 0.36, 1]
+                        }}
+                        className="pt-8 text-center"
                     >
-                        <p className="text-2xl md:text-3xl font-bold text-black">
+                        <motion.p
+                            className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#2828D0] to-[#8060D0] bg-clip-text text-transparent"
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ duration: 0.2 }}
+                        >
                             이제 루플리와 함께 시작해 보세요.
-                        </p>
+                        </motion.p>
                     </motion.div>
-                </motion.div>
+                </div>
             </div>
         </section>
     )

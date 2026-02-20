@@ -45,7 +45,7 @@ const types = [
 
 export default function IntroPage() {
     return (
-        <div className="min-h-screen bg-white pt-32 pb-16 px-6">
+        <div className="min-h-screen bg-blue-50 pt-32 pb-16 px-6">
             <div className="max-w-6xl mx-auto">
                 {/* 헤더 */}
                 <motion.div
@@ -102,7 +102,7 @@ export default function IntroPage() {
                                     <h2 className="text-2xl md:text-3xl font-bold text-black">
                                         {type.title}
                                     </h2>
-                                    <p className="text-sm md:text-base text-purple-600 font-medium">
+                                    <p className="text-sm md:text-base font-medium" style={{ color: '#2828D0' }}>
                                         {type.subtitle}
                                     </p>
                                 </div>
@@ -111,7 +111,8 @@ export default function IntroPage() {
                                 </p>
                                 <Link
                                     href={`/services/intro/${type.slug}`}
-                                    className="inline-block text-sm text-purple-600 hover:text-purple-700 font-medium"
+                                    className="inline-block text-sm font-medium hover:opacity-80 transition-opacity"
+                                    style={{ color: '#2828D0' }}
                                 >
                                     자세히 보기 →
                                 </Link>
@@ -127,7 +128,7 @@ export default function IntroPage() {
                     viewport={{ once: true }}
                     className="mt-16 text-center space-y-6"
                 >
-                    <div className="bg-purple-100 p-8 md:p-12 rounded-2xl space-y-4">
+                    <div className="p-8 md:p-12 rounded-2xl space-y-4" style={{ background: 'linear-gradient(135deg, rgba(40, 40, 208, 0.1) 0%, rgba(128, 96, 208, 0.1) 100%)' }}>
                         <h3 className="text-2xl md:text-3xl font-bold text-black">
                             나는 어떤 유형일까?
                         </h3>
@@ -136,7 +137,8 @@ export default function IntroPage() {
                         </p>
                         <Link
                             href="/services/test"
-                            className="inline-block px-8 py-3 bg-purple-400 text-black rounded-full font-medium hover:bg-purple-500 transition-colors"
+                            className="inline-block px-8 py-3 text-white rounded-full font-medium hover:opacity-90 transition-opacity"
+                            style={{ background: 'linear-gradient(135deg, #2828D0 0%, #8060D0 100%)' }}
                         >
                             테스트 시작하기
                         </Link>
