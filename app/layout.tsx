@@ -17,8 +17,11 @@ const notoSansKR = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "Creative Marketing Agency",
+  title: "Loofly",
   description: "A premium marketing agency template built with Next.js",
+  icons: {
+    icon: "/main4.jpg",
+  },
 };
 
 export default function RootLayout({
