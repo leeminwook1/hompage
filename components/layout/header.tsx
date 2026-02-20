@@ -10,6 +10,17 @@ export function Header() {
     const [mobileSubmenu, setMobileSubmenu] = React.useState<string | null>(null)
     const pathname = usePathname()
 
+    // Close mobile menu when pathname changes
+    React.useEffect(() => {
+        setMobileMenuOpen(false)
+        setMobileSubmenu(null)
+    }, [pathname])
+
+    const handleMobileLinkClick = () => {
+        setMobileMenuOpen(false)
+        setMobileSubmenu(null)
+    }
+
     return (
         <header className="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
             <div className="container mx-auto px-6">
@@ -275,13 +286,13 @@ export function Header() {
                             </button>
                             {mobileSubmenu === 'about' && (
                                 <div className="pl-4 mt-2 space-y-2">
-                                    <Link href="/about/story" className="block py-2 text-sm text-gray-600">
+                                    <Link href="/about/story" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         루플리 스토리
                                     </Link>
-                                    <Link href="/about/ceo" className="block py-2 text-sm text-gray-600">
+                                    <Link href="/about/ceo" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         CEO 메세지
                                     </Link>
-                                    {/* <Link href="/about/history" className="block py-2 text-sm text-gray-600">
+                                    {/* <Link href="/about/history" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         수익구조
                                     </Link> */}
                                 </div>
@@ -299,16 +310,16 @@ export function Header() {
                             </button>
                             {mobileSubmenu === 'business' && (
                                 <div className="pl-4 mt-2 space-y-2">
-                                    <Link href="/business/dopamine-literacy" className="block py-2 text-sm text-gray-600">
+                                    <Link href="/business/dopamine-literacy" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         도파민 리터러시 프로그램
                                     </Link>
-                                    <Link href="/business/competency" className="block py-2 text-sm text-gray-600">
+                                    <Link href="/business/competency" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         역량 강화 프로그램
                                     </Link>
-                                    <Link href="/business/leadership" className="block py-2 text-sm text-gray-600">
+                                    <Link href="/business/leadership" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         리더십 강화 프로그램
                                     </Link>
-                                    <Link href="/business/team-bonding" className="block py-2 text-sm text-gray-600">
+                                    <Link href="/business/team-bonding" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         팀 본딩 프로그램
                                     </Link>
                                 </div>
@@ -326,16 +337,16 @@ export function Header() {
                             </button>
                             {mobileSubmenu === 'community' && (
                                 <div className="pl-4 mt-2 space-y-2">
-                                    <Link href="/community/intro" className="block py-2 text-sm text-gray-600">
-                                        소개
+                                    <Link href="/community/intro" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
+                                        커뮤니티 소개
                                     </Link>
-                                    <Link href="/community/crew" className="block py-2 text-sm text-gray-600">
-                                        크루
+                                    <Link href="/community/crew" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
+                                        루플리 크루
                                     </Link>
-                                    <Link href="/community/class" className="block py-2 text-sm text-gray-600">
-                                        클래스
+                                    <Link href="/community/class" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
+                                        루플리 클래스
                                     </Link>
-                                    <Link href="/community/lap" className="block py-2 text-sm text-gray-600">
+                                    <Link href="/community/lap" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         루프 랩(게시판)
                                     </Link>
                                 </div>
@@ -353,10 +364,10 @@ export function Header() {
                             </button>
                             {mobileSubmenu === 'services' && (
                                 <div className="pl-4 mt-2 space-y-2">
-                                    <Link href="/services/test" className="block py-2 text-sm text-gray-600">
+                                    <Link href="/services/test" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         테스트 하기
                                     </Link>
-                                    <Link href="/services/intro" className="block py-2 text-sm text-gray-600">
+                                    <Link href="/services/intro" className="block py-2 text-sm text-gray-600" onClick={handleMobileLinkClick}>
                                         유형 소개
                                     </Link>
                                 </div>
