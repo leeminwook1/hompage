@@ -25,7 +25,7 @@ export function Header() {
         <header className="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
             <div className="container mx-auto px-6">
                 <div className="flex items-center justify-between h-16">
-                    <Link href="/" className="text-xl font-bold text-black">
+                    <Link href="/" className="text-xl font-bold" style={{ color: '#2828D0' }}>
                         LOOFLY
                     </Link>
 

@@ -18,9 +18,12 @@ const notoSansKR = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   title: "Loofly",
-  description: "A premium marketing agency template built with Next.js",
+  description: "자극의 시대, 루플리",
   icons: {
-    icon: "/main4.jpg",
+    icon: [
+      { url: "/main4.jpg", type: "image/jpeg" },
+    ],
+    apple: "/main4.jpg",
   },
 };
 

@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import { useState, useEffect } from "react"
 
 const communities = [
@@ -10,42 +11,48 @@ const communities = [
         subtitle: "함께 성장하는 개발자 커뮤니티",
         tag: "[LOOFLY class]",
         badge: "참여하기",
-        image: "/main4.jpg"
+        image: "/main4.jpg",
+        link: "/community/class"
     },
     {
         title: "스냅 클래스",
         subtitle: "일상을 담는 사진 촬영 클래스",
         tag: "[LOOFLY class]",
         badge: "참여하기",
-        image: "/main4.jpg"
+        image: "/main4.jpg",
+        link: "/community/class"
     },
     {
         title: "가창 클래스",
         subtitle: "목소리로 표현하는 음악 수업",
         tag: "[LOOFLY class]",
         badge: "참여하기",
-        image: "/main4.jpg"
+        image: "/main4.jpg",
+        link: "/community/class"
     },
     {
         title: "러닝 크루",
         subtitle: "건강한 습관을 만드는 러닝 모임",
         tag: "[LOOFLY CREW]",
         badge: "참여하기",
-        image: "/main4.jpg"
+        image: "/main4.jpg",
+        link: "/community/crew"
     },
     {
         title: "볼링 크루",
         subtitle: "스트라이크로 연결되는 즐거운 모임",
         tag: "[LOOFLY CREW]",
         badge: "참여하기",
-        image: "/main4.jpg"
+        image: "/main4.jpg",
+        link: "/community/crew"
     },
     {
         title: "출사 크루",
         subtitle: "렌즈로 세상을 담는 사진 동호회",
         tag: "[LOOFLY CREW]",
         badge: "참여하기",
-        image: "/main4.jpg"
+        image: "/main4.jpg",
+        link: "/community/crew"
     }
 ]
 
@@ -188,9 +195,11 @@ export function CommunitySection() {
                                                     </p>
 
                                                     {/* Badge */}
-                                                    <button className="w-full px-4 py-2 sm:py-2.5 bg-white rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border-2 hover:bg-[#2828D0]/10 hover:border-[#2828D0]" style={{ color: '#2828D0', borderColor: '#8060D0' }}>
-                                                        {community.badge}
-                                                    </button>
+                                                    <Link href={community.link}>
+                                                        <button className="w-full px-4 py-2 sm:py-2.5 bg-white rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border-2 hover:bg-[#2828D0]/10 hover:border-[#2828D0]" style={{ color: '#2828D0', borderColor: '#8060D0' }}>
+                                                            {community.badge}
+                                                        </button>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
