@@ -8,6 +8,8 @@ export function TechPreloader() {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
+        // Add class to body immediately to hide content
+        document.body.classList.remove("preloader-ready");
         document.body.style.overflow = "hidden";
 
         const duration = 2000;
@@ -25,6 +27,7 @@ export function TechPreloader() {
                 setTimeout(() => {
                     setIsLoading(false);
                     document.body.style.overflow = "";
+                    document.body.classList.add("preloader-ready");
                 }, 300);
             }
         };
@@ -33,6 +36,7 @@ export function TechPreloader() {
 
         return () => {
             document.body.style.overflow = "";
+            document.body.classList.add("preloader-ready");
         };
     }, []);
 

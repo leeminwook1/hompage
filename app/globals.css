@@ -114,6 +114,17 @@ body {
   /* Prevent horizontal scroll from animations */
 }
 
+/* Hide content until preloader is ready - only hide main content, not preloader */
+body:not(.preloader-ready) main,
+body:not(.preloader-ready) header,
+body:not(.preloader-ready) footer {
+  visibility: hidden;
+}
+
+body:not(.preloader-ready) {
+  background: linear-gradient(135deg, #2828D0 0%, #8060D0 100%) !important;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
